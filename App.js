@@ -1,14 +1,16 @@
 const express = require("express");
 const app = express();
+const products_routers = require("./routes/productsRoutes");
 
 const PORT = process.env.PORT || 5000;
-// const hostname = "localhost";
-// const backlog = 10;
-// const port = PORT;
 
 app.get("/", (req, res) => {
   res.send("Hii I am Live");
 });
+
+// middleware or to set router
+app.use("/api/products", products_routers);
+
 
 const start = async () => {
   try {
